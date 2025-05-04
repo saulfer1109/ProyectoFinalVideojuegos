@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://gs7sudawjk5e"]
+
+[ext_resource type="PackedScene" uid="uid://cuqsyurrdwk05" path="res://scenes/tilemap/tm_house_player.tscn" id="1_0u5ce"]
+[ext_resource type="PackedScene" uid="uid://ce5jn8fjf4n21" path="res://scenes/Player/player.tscn" id="1_i8tnq"]
+[ext_resource type="PackedScene" uid="uid://dqkw2ywyxs51h" path="res://scenes/UI/ui_general_group.tscn" id="3_xiowf"]
+[ext_resource type="PackedScene" uid="uid://dyxkasb84mqjt" path="res://scenes/Items/recolectable_item.tscn" id="4_sbr87"]
+
+[node name="HousePlayer" type="Node2D"]
+
+[node name="tm_housePlayer" parent="." instance=ExtResource("1_0u5ce")]
+
+[node name="Player" parent="." instance=ExtResource("1_i8tnq")]
+position = Vector2(124, 119)
+speed = 75
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UIGeneralGroup" parent="CanvasLayer" instance=ExtResource("3_xiowf")]
+
+[node name="RecolectableItem" parent="." instance=ExtResource("4_sbr87")]
+position = Vector2(91, 119)
+IdItem = 5
+value = 1
+
+[node name="RecolectableItem2" parent="." instance=ExtResource("4_sbr87")]
+position = Vector2(118, 157)
+IdItem = 1
+value = 1
+
+[node name="RecolectableItem3" parent="." instance=ExtResource("4_sbr87")]
+position = Vector2(119, 62)
+IdItem = 2
+value = 25
+
+[node name="RecolectableItem4" parent="." instance=ExtResource("4_sbr87")]
+position = Vector2(207, 61)
+IdItem = 3
+value = 5
+
+[node name="RecolectableItem5" parent="." instance=ExtResource("4_sbr87")]
+position = Vector2(166, 168)
+IdItem = 4
+value = 5

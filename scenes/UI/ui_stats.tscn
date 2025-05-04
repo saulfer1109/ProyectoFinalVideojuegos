@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://ng4imu1eld3f"]
+
+[ext_resource type="Texture2D" uid="uid://db2c5xywkary5" path="res://resourses/UI/MoneyIcon.png" id="1_e15d8"]
+[ext_resource type="FontFile" uid="uid://dchychvgn8sbr" path="res://resourses/fonts/zeldadxt.ttf" id="2_b3xid"]
+[ext_resource type="Texture2D" uid="uid://50n57jiqlh4x" path="res://resourses/UI/ArrowIcon.png" id="3_j2q6n"]
+[ext_resource type="Texture2D" uid="uid://b7w2201u8p8jq" path="res://resourses/UI/BombIcon.png" id="4_iqrgw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eriyk"]
+font = ExtResource("2_b3xid")
+font_size = 40
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="UIStats" type="HBoxContainer"]
+offset_right = 56.0
+offset_bottom = 16.0
+theme_override_constants/separation = 4
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+texture = ExtResource("1_e15d8")
+centered = false
+
+[node name="Label" type="Label" parent="Panel/Sprite2D"]
+offset_left = 1.0
+offset_top = 13.0
+offset_right = 85.0
+offset_bottom = 47.0
+scale = Vector2(0.2, 0.2)
+text = "000"
+label_settings = SubResource("LabelSettings_eriyk")
+
+[node name="Panel2" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel2"]
+texture = ExtResource("3_j2q6n")
+centered = false
+
+[node name="Label" type="Label" parent="Panel2/Sprite2D"]
+offset_left = 1.0
+offset_top = 13.0
+offset_right = 85.0
+offset_bottom = 47.0
+scale = Vector2(0.2, 0.2)
+text = "00"
+label_settings = SubResource("LabelSettings_eriyk")
+horizontal_alignment = 1
+
+[node name="Panel3" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel3"]
+texture = ExtResource("4_iqrgw")
+centered = false
+
+[node name="Label" type="Label" parent="Panel3/Sprite2D"]
+offset_left = 1.0
+offset_top = 13.0
+offset_right = 85.0
+offset_bottom = 47.0
+scale = Vector2(0.2, 0.2)
+text = "00"
+label_settings = SubResource("LabelSettings_eriyk")
+horizontal_alignment = 1
