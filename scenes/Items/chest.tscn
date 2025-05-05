@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://smdlegyaw7my"]
+
+[ext_resource type="Script" uid="uid://jyin0a8j57yb" path="res://scripts/Items/chest.gd" id="1_f12af"]
+[ext_resource type="Texture2D" uid="uid://cehc7w8s4qapt" path="res://resourses/tiles/Housing.png" id="1_qejas"]
+[ext_resource type="PackedScene" uid="uid://bah2fjeef4pv2" path="res://scenes/Importants/action_area.tscn" id="2_8y7te"]
+[ext_resource type="PackedScene" uid="uid://dyxkasb84mqjt" path="res://scenes/Items/recolectable_item.tscn" id="2_11o04"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f12af"]
+atlas = ExtResource("1_qejas")
+region = Rect2(64.5, 80, 15.5, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7i1jd"]
+size = Vector2(16, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11o04"]
+
+[node name="chest" type="Node2D"]
+script = ExtResource("1_f12af")
+objects = Array[PackedScene]([ExtResource("2_11o04")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_f12af")
+
+[node name="ActionArea" parent="." instance=ExtResource("2_8y7te")]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionArea"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_7i1jd")
+debug_color = Color(0.991652, 0, 0.262738, 0.42)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+scale = Vector2(0.8, 0.4)
+shape = SubResource("RectangleShape2D_11o04")

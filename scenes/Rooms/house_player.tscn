@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://gs7sudawjk5e"]
+[gd_scene load_steps=6 format=3 uid="uid://gs7sudawjk5e"]
 
 [ext_resource type="PackedScene" uid="uid://cuqsyurrdwk05" path="res://scenes/tilemap/tm_house_player.tscn" id="1_0u5ce"]
 [ext_resource type="PackedScene" uid="uid://ce5jn8fjf4n21" path="res://scenes/Player/player.tscn" id="1_i8tnq"]
 [ext_resource type="PackedScene" uid="uid://dqkw2ywyxs51h" path="res://scenes/UI/ui_general_group.tscn" id="3_xiowf"]
 [ext_resource type="PackedScene" uid="uid://dyxkasb84mqjt" path="res://scenes/Items/recolectable_item.tscn" id="4_sbr87"]
+[ext_resource type="PackedScene" uid="uid://smdlegyaw7my" path="res://scenes/Items/chest.tscn" id="5_ekb8d"]
 
 [node name="HousePlayer" type="Node2D"]
 
@@ -41,3 +42,6 @@ value = 5
 position = Vector2(166, 168)
 IdItem = 4
 value = 5
+
+[node name="chest" parent="." instance=ExtResource("5_ekb8d")]
+position = Vector2(215, 116)

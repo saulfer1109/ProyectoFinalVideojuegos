@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ce5jn8fjf4n21"]
+[gd_scene load_steps=10 format=3 uid="uid://ce5jn8fjf4n21"]
 
 [ext_resource type="Script" uid="uid://q624xaln42fx" path="res://scripts/Player/playerController.gd" id="1_1kbk7"]
 [ext_resource type="Texture2D" uid="uid://c6hvo4kw4b4gj" path="res://resourses/Player/PlayerSpritesheet.png" id="2_1kbk7"]
@@ -75,13 +75,16 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1kbk7"]
-size = Vector2(16, 20)
+size = Vector2(14, 18)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1kbk7"]
+radius = 5.0
+height = 20.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_1kbk7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, -4)
 texture = ExtResource("2_1kbk7")
 hframes = 9
 vframes = 3
@@ -94,5 +97,17 @@ libraries = {
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -3)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_1kbk7")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Marker2D"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Area2D"]
+position = Vector2(0, 11)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1kbk7")
+debug_color = Color(0.523909, 0.573279, 1.92523e-07, 0.42)
