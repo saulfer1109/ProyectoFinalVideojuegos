@@ -1,0 +1,16 @@
+~ dialogo_inicio
+???: Ayudame...
+???: Porfavor Ayudame...
+???: Estoy prisionera en el castillo de Jairule...
+???: Mi nombre es zelwa...
+Zelwa: El mago malote le ha hecho algo a tu madre!
+% Zelwa: ¡Ayudame porfavor!
+% Zelwa: Tiren paro :C
+
+¿Irás a ayudar?
+- Si
+	=> END!
+- No
+	% Narrador: No tienes opción, no seas malo...
+	% Narrador: Pues vas a ir igualmente.
+=> END

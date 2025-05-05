@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://jsxnspycbn04"
+path="res://.godot/imported/DialogueInicioJuego.dialogue-7a991138cb9a3f979a2b089c340f9664.tres"
+
+[deps]
+
+source_file="res://Dialogues/DialogueInicioJuego.dialogue"
+dest_files=["res://.godot/imported/DialogueInicioJuego.dialogue-7a991138cb9a3f979a2b089c340f9664.tres"]
+
+[params]
+
+defaults=true
