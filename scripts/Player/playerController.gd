@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
-@export var speed: int=35
+@export var speed: int=50
 @onready var animation = $AnimationPlayer
 @onready var sprite = $Sprite2D 
 @onready var marker = $Marker2D
 @onready var actionArea = $Marker2D/Area2D
+@onready var hitboxDamage = $HitboxDamage
 var nearestActionable: ActionArea
+var direccionHitDamage = "DOWN"
+var hitboxDamageScript: PlayerHitboxDamage = PlayerHitboxDamage.new()
 
 func validateInput():
 	var moveDirection= Input.get_vector("ui_left", "ui_right", "ui_up","ui_down")
@@ -16,18 +19,26 @@ func animateMovement():
 		animation.stop()
 	else:
 		var direAnim= "walk_down"
+		direccionHitDamage = "DOWN"
 		marker.rotation = deg_to_rad(0)
+		hitboxDamage.rotation = deg_to_rad(0)
 		sprite.flip_h= false
 		if velocity.x < 0:
 			direAnim= "walk_right"
+			direccionHitDamage = "LEFT"
 			marker.rotation = deg_to_rad(90)
+			hitboxDamage.rotation = deg_to_rad(90)
 			sprite.flip_h= true
 		elif velocity.x > 0:
 			direAnim= "walk_right"
+			direccionHitDamage = "RIGHT"
 			marker.rotation = deg_to_rad(-90)
+			hitboxDamage.rotation = deg_to_rad(-90)
 		elif velocity.y < 0:
 			direAnim="walk_up"
+			direccionHitDamage = "UP"
 			marker.rotation = deg_to_rad(180)
+			hitboxDamage.rotation = deg_to_rad(180)
 		animation.play(direAnim)
 		
 func _physics_process(delta):
@@ -54,6 +65,10 @@ func check_actionables() -> void:
 		nearestActionable = null
 		
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_select"):
+		hitboxDamageScript.setup(self,direccionHitDamage,1)
+		hitboxDamageScript.createDamage()
+	
 	if event.is_action_pressed("ui_accept") && nearestActionable != null:
 		if is_instance_valid(nearestActionable):
 			nearestActionable.emit_signal("actionated")
