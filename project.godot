@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ProyectoFinalVideojuegos"
-run/main_scene="uid://bsc2y8b5viha3"
+run/main_scene="res://scenes/Rooms/main_room.tscn"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 

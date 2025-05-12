@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1jdsfkli8ugj"]
 
-[ext_resource type="Script" uid="uid://cx8nkdfe06sfn" path="res://scripts/Items/AllyArrow.gd" id="1_6uy0a"]
+[ext_resource type="Script" uid="uid://cx8nkdfe06sfn" path="res://scripts/Items/AllyDamage.gd" id="1_6uy0a"]
 [ext_resource type="Texture2D" uid="uid://bru2hyoq5k13h" path="res://resourses/Items/Arrow.png" id="1_8ta7w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uy0a"]
