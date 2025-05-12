@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://bjybjoxbb1dp"]
+
+[ext_resource type="Script" uid="uid://tnih6m1pvbr8" path="res://scripts/UI/InventorySystem.gd" id="1_e08gh"]
+[ext_resource type="Texture2D" uid="uid://bs7ci4tdumw6r" path="res://resourses/UI/FondoBlack.png" id="2_qr247"]
+[ext_resource type="Texture2D" uid="uid://doq0u62s1yb6i" path="res://resourses/UI/GUIInventory.png" id="3_x5sa0"]
+[ext_resource type="Texture2D" uid="uid://cnmjhxrxb4npc" path="res://resourses/UI/HighlightInventory.png" id="4_rkap7"]
+[ext_resource type="FontFile" uid="uid://dchychvgn8sbr" path="res://resourses/fonts/zeldadxt.ttf" id="5_bkito"]
+[ext_resource type="Texture2D" uid="uid://bru2hyoq5k13h" path="res://resourses/Items/Arrow.png" id="6_x3ee0"]
+[ext_resource type="Script" uid="uid://mpi5e50c6glg" path="res://scripts/UI/InventoryItem.gd" id="7_6u0nr"]
+[ext_resource type="Texture2D" uid="uid://b3v4oe7xbb75s" path="res://resourses/Items/Bomb.png" id="8_jl1gr"]
+[ext_resource type="Texture2D" uid="uid://r6hqoh1sifpi" path="res://resourses/Items/Coin.png" id="9_qri52"]
+[ext_resource type="Texture2D" uid="uid://c4w8vgytry5mi" path="res://resourses/Items/Heart.png" id="10_137nd"]
+[ext_resource type="Texture2D" uid="uid://bs5l4aj1hoto1" path="res://resourses/Items/Magic.png" id="11_uqinw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p1fr5"]
+font = ExtResource("5_bkito")
+font_size = 40
+font_color = Color(0.701961, 0.941176, 0.843137, 1)
+outline_size = 25
+outline_color = Color(0.215686, 0.305882, 0.137255, 1)
+
+[node name="InventorySystem" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_e08gh")
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.352941)
+scale = Vector2(1, 1.35417)
+texture = ExtResource("2_qr247")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("3_x5sa0")
+centered = false
+
+[node name="Highlight" type="Sprite2D" parent="."]
+position = Vector2(31, 71)
+texture = ExtResource("4_rkap7")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 152.0
+offset_top = 140.0
+offset_right = 587.0
+offset_bottom = 310.0
+scale = Vector2(0.2, 0.2)
+text = "000"
+label_settings = SubResource("LabelSettings_p1fr5")
+autowrap_mode = 3
+
+[node name="Selectables" type="Node2D" parent="."]
+
+[node name="Item1" type="Sprite2D" parent="Selectables"]
+position = Vector2(22, 64)
+texture = ExtResource("6_x3ee0")
+centered = false
+script = ExtResource("7_6u0nr")
+description = "Flechas para el archo"
+
+[node name="Item2" type="Sprite2D" parent="Selectables"]
+position = Vector2(42, 64)
+texture = ExtResource("8_jl1gr")
+centered = false
+script = ExtResource("7_6u0nr")
+description = "Bombas"
+
+[node name="Item3" type="Sprite2D" parent="Selectables"]
+position = Vector2(61, 64)
+texture = ExtResource("9_qri52")
+centered = false
+script = ExtResource("7_6u0nr")
+description = "Moneda del mundo"
+
+[node name="Item4" type="Sprite2D" parent="Selectables"]
+position = Vector2(79, 64)
+texture = ExtResource("10_137nd")
+centered = false
+script = ExtResource("7_6u0nr")
+description = "Corazon de Oro"
+
+[node name="Item5" type="Sprite2D" parent="Selectables"]
+position = Vector2(101, 64)
+texture = ExtResource("11_uqinw")
+centered = false
+script = ExtResource("7_6u0nr")
+description = "Cok, la bebida de los pingüinos"

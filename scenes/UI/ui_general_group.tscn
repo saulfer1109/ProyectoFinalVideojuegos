@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqkw2ywyxs51h"]
+[gd_scene load_steps=7 format=3 uid="uid://dqkw2ywyxs51h"]
 
 [ext_resource type="PackedScene" uid="uid://bqxfx0blprtyb" path="res://scenes/UI/ui_actual_object.tscn" id="1_6svpq"]
 [ext_resource type="Script" uid="uid://s05gw71u8y52" path="res://scripts/UI/ui_Controller.gd" id="1_uaj4s"]
 [ext_resource type="PackedScene" uid="uid://ta53lecnbvj8" path="res://scenes/UI/ui_healt_container.tscn" id="2_uaj4s"]
 [ext_resource type="PackedScene" uid="uid://o7pmfjw0wwxt" path="res://scenes/UI/ui_mana_bar.tscn" id="3_8uq0d"]
 [ext_resource type="PackedScene" uid="uid://ng4imu1eld3f" path="res://scenes/UI/ui_stats.tscn" id="4_a14c5"]
+[ext_resource type="PackedScene" uid="uid://bjybjoxbb1dp" path="res://scenes/UI/inventory_system.tscn" id="6_8uq0d"]
 
 [node name="UIGeneralGroup" type="Control"]
 layout_mode = 3
@@ -42,3 +43,5 @@ offset_left = 38.0
 offset_top = 5.0
 offset_right = 94.0
 offset_bottom = 25.0
+
+[node name="InventorySystem" parent="." instance=ExtResource("6_8uq0d")]

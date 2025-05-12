@@ -12,7 +12,7 @@ offset_bottom = 32.0
 texture = ExtResource("1_1xad3")
 centered = false
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Object" type="Sprite2D" parent="."]
 position = Vector2(8, 8)
 texture = ExtResource("2_vqemh")
 centered = false

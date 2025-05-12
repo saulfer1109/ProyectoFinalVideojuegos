@@ -72,13 +72,29 @@ func check_actionables() -> void:
 		nearestActionable = null
 		
 func _unhandled_input(event: InputEvent) -> void:
+	
+	if event.is_action_pressed("key_enter"):
+		var invNode = get_node("/root/MainRoom/CanvasLayer/UIGeneralGroup/InventorySystem")
+		if invNode.activeInventory == false:
+			canMove = false
+			invNode.activeInventory = true
+			return
+		else:
+			canMove = true
+			invNode.activeInventory = false
+			return
+		
 	if canMove == true:
-		if event.is_action_pressed("ui_select"):
+		if event.is_action_pressed("key_x"):
+			hitboxDamageScript.setup(self.get_parent(),hitboxDamage,direccionHitDamage,2)
+			hitboxDamageScript.createDamage()
+			attack_animation()
+		if event.is_action_pressed("key_z"):
 			hitboxDamageScript.setup(self.get_parent(),hitboxDamage,direccionHitDamage,typeDamage)
 			hitboxDamageScript.createDamage()
 			attack_animation()
-
-		if event.is_action_pressed("ui_accept") && nearestActionable != null:
+	
+		if event.is_action_pressed("ui_select") && nearestActionable != null:
 			if is_instance_valid(nearestActionable):
 				nearestActionable.emit_signal("actionated")
 	

@@ -7,6 +7,7 @@ var dataNode
 @onready var  lbFlechas= $UIStats/Panel3/Sprite2D/Label
 @onready var manaBar= $UIManaBar/TextureProgressBar
 @onready var health= $UIHealtContainer/LifeFull
+@onready var actualObject = $UIActualObject/Object
 
 func _ready():
 	dataNode= get_node("/root/MainRoom/DataController")
@@ -20,7 +21,7 @@ func updateData():
 	handleStats()
 	
 func handleActualObject():
-	pass
+	actualObject.texture = dataNode.actualObject
 	
 func handleHealthContainers():
 	health.size.x=(dataNode.health*8)

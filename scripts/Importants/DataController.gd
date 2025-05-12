@@ -2,6 +2,13 @@ extends Node
 
 signal dataChange
 
+var actualObject: Texture2D:
+	get:
+		return actualObject
+	set(value):
+		actualObject = value
+		dataChange.emit()
+
 func _ready():
 	loadGame()
 	
