@@ -5,8 +5,7 @@ extends Area2D
 func _on_body_entered(body:Node2D):
 	if (body.name == "Player")	:
 		var mainNode = get_node("/root/MainRoom")
-		var nodeDelete = mainNode.get_child(2)
+		var nodeDelete = mainNode.get_child(3)
 		nodeDelete.queue_free()
 		var instance = nextScene.instantiate()
-		instance.get_node("Player").canMove = true
 		mainNode.call_deferred("add_child",instance)

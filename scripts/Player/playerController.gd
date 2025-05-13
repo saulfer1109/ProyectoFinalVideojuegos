@@ -11,15 +11,17 @@ extends CharacterBody2D
 @onready var bodyDetection = $BodyDetection
 
 var moveDirection = Vector2.ZERO
-var canMove = true
 var canDamage = true
 var nearestActionable: ActionArea
 var direccionHitDamage = "DOWN"
 var hitboxDamageScript: PlayerHitboxDamage = PlayerHitboxDamage.new()
 var dataNode
+var configController
+
 func _ready():
 	animationTree.active = true
 	dataNode = get_node("/root/MainRoom/DataController")
+	configController = get_node("/root/MainRoom/ConfigController")
 
 func validateInput():
 	moveDirection= Input.get_vector("ui_left", "ui_right", "ui_up","ui_down")
@@ -51,8 +53,8 @@ func animateMovement():
 		animationTree["parameters/conditions/Idleing"] = false
 		animationTree["parameters/conditions/Walking"] = true
 		
-func _physics_process(delta):
-	if canMove:
+func _physics_process(_delta):
+	if configController.canMovePlayer:
 		if canDamage:
 			detection_damage()
 		validateInput()
@@ -91,15 +93,15 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("key_enter"):
 		var invNode = get_node("/root/MainRoom/CanvasLayer/UIGeneralGroup/InventorySystem")
 		if invNode.activeInventory == false:
-			canMove = false
+			configController.canMovePlayer = false
 			invNode.activeInventory = true
 			return
 		else:
-			canMove = true
+			configController.canMovePlayer = true
 			invNode.activeInventory = false
 			return
 		
-	if canMove == true:
+	if configController.canMovePlayer == true:
 		if event.is_action_pressed("key_x"):
 			hitboxDamageScript.setup(self.get_parent(),hitboxDamage,direccionHitDamage,2)
 			hitboxDamageScript.createDamage()
@@ -117,10 +119,10 @@ func attack_animation():
 	animationTree["parameters/conditions/Attacking"] = true
 	animationTree["parameters/conditions/Idleing"] = false
 	animationTree["parameters/conditions/Walking"] = false
-	canMove = false
+	configController.canMovePlayer = false
 	await get_tree().create_timer(0.35).timeout
 	animationTree["parameters/conditions/Attacking"] = false
-	canMove = true
+	configController.canMovePlayer = true
 	
 	
 func activeDamage():

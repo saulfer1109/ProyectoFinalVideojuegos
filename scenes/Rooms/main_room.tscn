@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsc2y8b5viha3"]
+[gd_scene load_steps=6 format=3 uid="uid://bsc2y8b5viha3"]
 
 [ext_resource type="Script" uid="uid://w40rufx8kxb6" path="res://scripts/Other/iniciojuego.gd" id="1_nhmx7"]
 [ext_resource type="PackedScene" uid="uid://dusnv8ale1l62" path="res://scenes/Importants/data_controller.tscn" id="1_t1amy"]
 [ext_resource type="PackedScene" uid="uid://gs7sudawjk5e" path="res://scenes/Rooms/house_player.tscn" id="2_nhmx7"]
+[ext_resource type="PackedScene" uid="uid://dhjr37wq7u6gj" path="res://scenes/Importants/config_controller.tscn" id="3_xtv8s"]
 [ext_resource type="PackedScene" uid="uid://dqkw2ywyxs51h" path="res://scenes/UI/ui_general_group.tscn" id="4_wyxrh"]
 
 [node name="MainRoom" type="Node2D"]
 script = ExtResource("1_nhmx7")
 
 [node name="DataController" parent="." instance=ExtResource("1_t1amy")]
+
+[node name="ConfigController" parent="." instance=ExtResource("3_xtv8s")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

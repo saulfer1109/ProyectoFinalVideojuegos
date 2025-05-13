@@ -7,11 +7,14 @@ var timer
 var canMove
 var oneTime = true
 
+var configController
 func _ready() -> void:
+	configController = get_node("/root/MainRoom/ConfigController")
 	get_tree().create_timer(timer).timeout.connect(expireTime)
+	configController.canMovePlayer = true
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	match direction:
 		"DOWN":
 			rotation = deg_to_rad(0)
