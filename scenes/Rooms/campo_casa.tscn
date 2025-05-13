@@ -9,13 +9,13 @@
 [node name="tm_CampoCasa" parent="." instance=ExtResource("1_m5mpu")]
 
 [node name="Player" parent="." instance=ExtResource("2_ncw41")]
-position = Vector2(236, 81)
+position = Vector2(240, 75)
 
 [node name="Enemy_SideEye" parent="." instance=ExtResource("3_71yxc")]
-position = Vector2(105, 154)
+position = Vector2(84, 151)
 
 [node name="Enemy_SideEye2" parent="." instance=ExtResource("3_71yxc")]
-position = Vector2(123, 191)
+position = Vector2(48, 225)
 
 [node name="Enemy_SideEye3" parent="." instance=ExtResource("3_71yxc")]
-position = Vector2(192, 256)
+position = Vector2(294, 223)
