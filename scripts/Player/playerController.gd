@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: int=50
+@export var speed: int=75
 @export var typeDamage = 2
 @onready var animation = $AnimationPlayer
 @onready var sprite = $Sprite2D 
@@ -8,14 +8,18 @@ extends CharacterBody2D
 @onready var actionArea = $Marker2D/Area2D
 @onready var hitboxDamage = $HitboxDamage
 @onready var animationTree = $AnimationTree
+@onready var bodyDetection = $BodyDetection
+
 var moveDirection = Vector2.ZERO
 var canMove = true
+var canDamage = true
 var nearestActionable: ActionArea
 var direccionHitDamage = "DOWN"
 var hitboxDamageScript: PlayerHitboxDamage = PlayerHitboxDamage.new()
-
+var dataNode
 func _ready():
 	animationTree.active = true
+	dataNode = get_node("/root/MainRoom/DataController")
 
 func validateInput():
 	moveDirection= Input.get_vector("ui_left", "ui_right", "ui_up","ui_down")
@@ -48,11 +52,22 @@ func animateMovement():
 		animationTree["parameters/conditions/Walking"] = true
 		
 func _physics_process(delta):
-	if canMove == true:
+	if canMove:
+		if canDamage:
+			detection_damage()
 		validateInput()
 		animateMovement()
 		move_and_slide()
 		check_actionables()
+		
+func detection_damage():
+	var areas: Array[Area2D] = bodyDetection.get_overlapping_areas()
+	for area in areas:
+		if canDamage:
+			dataNode.health = dataNode.health - 1
+			canDamage = false
+			modulate = Color(1,0.3,0.3)
+			get_tree().create_timer(3).timeout.connect(activeDamage)
 
 func check_actionables() -> void:
 	var areas: Array[Area2D] =actionArea.get_overlapping_areas()
@@ -107,4 +122,8 @@ func attack_animation():
 	animationTree["parameters/conditions/Attacking"] = false
 	canMove = true
 	
+	
+func activeDamage():
+	modulate = Color(1,1,1)
+	canDamage = true
 	

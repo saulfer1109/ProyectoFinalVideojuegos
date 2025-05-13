@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfmlirr3oyufq"]
+
+[ext_resource type="Texture2D" uid="uid://bs7ci4tdumw6r" path="res://resourses/UI/FondoBlack.png" id="1_2n4oe"]
+[ext_resource type="Script" uid="uid://ig70j81bwhnf" path="res://scripts/UI/deathScreen.gd" id="1_qrt7s"]
+[ext_resource type="FontFile" uid="uid://dchychvgn8sbr" path="res://resourses/fonts/zeldadxt.ttf" id="2_g4w52"]
+[ext_resource type="Script" uid="uid://bw2mtt77j2il8" path="res://scripts/UI/ButtonRetryGO.gd" id="3_g4w52"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qrt7s"]
+font = ExtResource("2_g4w52")
+font_size = 40
+font_color = Color(0.909804, 0.054902, 0.027451, 1)
+outline_size = 25
+outline_color = Color(0.32549, 0.117647, 0.137255, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h0yij"]
+font = ExtResource("2_g4w52")
+font_size = 40
+font_color = Color(0.913725, 0.0431373, 0, 1)
+outline_size = 25
+outline_color = Color(0.305882, 0.121569, 0, 1)
+
+[node name="DeathScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qrt7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.705882)
+position = Vector2(-1, 0)
+scale = Vector2(1.00781, 1.34028)
+texture = ExtResource("1_2n4oe")
+centered = false
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 263.0
+offset_bottom = 199.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+text = "HAZ MUERTO"
+label_settings = SubResource("LabelSettings_qrt7s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 125.0
+offset_right = 194.0
+offset_bottom = 164.0
+script = ExtResource("3_g4w52")
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 671.0
+offset_bottom = 191.0
+scale = Vector2(0.2, 0.2)
+text = "REINTENTAR"
+label_settings = SubResource("LabelSettings_h0yij")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="Button" method="_button_pressed"]

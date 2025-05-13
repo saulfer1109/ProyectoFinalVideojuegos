@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqkw2ywyxs51h"]
+[gd_scene load_steps=8 format=3 uid="uid://dqkw2ywyxs51h"]
 
 [ext_resource type="PackedScene" uid="uid://bqxfx0blprtyb" path="res://scenes/UI/ui_actual_object.tscn" id="1_6svpq"]
 [ext_resource type="Script" uid="uid://s05gw71u8y52" path="res://scripts/UI/ui_Controller.gd" id="1_uaj4s"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://o7pmfjw0wwxt" path="res://scenes/UI/ui_mana_bar.tscn" id="3_8uq0d"]
 [ext_resource type="PackedScene" uid="uid://ng4imu1eld3f" path="res://scenes/UI/ui_stats.tscn" id="4_a14c5"]
 [ext_resource type="PackedScene" uid="uid://bjybjoxbb1dp" path="res://scenes/UI/inventory_system.tscn" id="6_8uq0d"]
+[ext_resource type="PackedScene" uid="uid://cfmlirr3oyufq" path="res://scenes/UI/death_screen.tscn" id="7_a14c5"]
 
 [node name="UIGeneralGroup" type="Control"]
 layout_mode = 3
@@ -45,3 +46,6 @@ offset_right = 94.0
 offset_bottom = 25.0
 
 [node name="InventorySystem" parent="." instance=ExtResource("6_8uq0d")]
+
+[node name="DeathScreen" parent="." instance=ExtResource("7_a14c5")]
+layout_mode = 1

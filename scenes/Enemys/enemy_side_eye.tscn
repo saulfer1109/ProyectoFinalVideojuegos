@@ -7,7 +7,7 @@
 size = Vector2(12, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lop5q"]
-size = Vector2(14, 19)
+size = Vector2(14, 21)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_36on6"]
 radius = 40.0
@@ -25,12 +25,13 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_36on6")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 32
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_lop5q")
+debug_color = Color(0.775927, 0.437752, 0.127256, 0.42)
 
 [node name="DetectionArea" type="Area2D" parent="."]
 collision_layer = 0

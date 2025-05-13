@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://ce5jn8fjf4n21"]
+[gd_scene load_steps=44 format=3 uid="uid://ce5jn8fjf4n21"]
 
 [ext_resource type="Script" uid="uid://q624xaln42fx" path="res://scripts/Player/playerController.gd" id="1_1kbk7"]
 [ext_resource type="Texture2D" uid="uid://3w0af7nieac1" path="res://resourses/Player/PlayerSpritesheet2.png" id="2_1kbk7"]
@@ -359,6 +359,9 @@ graph_offset = Vector2(148.455, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqjuk"]
 size = Vector2(20, 23)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4h5g"]
+size = Vector2(18, 22)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_1kbk7")
 typeDamage = 1
@@ -422,3 +425,13 @@ collision_mask = 0
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_gqjuk")
 debug_color = Color(0.514179, 0.421283, 1, 0.42)
+
+[node name="BodyDetection" type="Area2D" parent="."]
+position = Vector2(0, 1)
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyDetection"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_c4h5g")
+debug_color = Color(0.677871, 0.489315, 0.351097, 0.42)

@@ -3,8 +3,8 @@ extends Control
 var dataNode
 
 @onready var  lbCoin= $UIStats/Panel/Sprite2D/Label
-@onready var  lbBombas= $UIStats/Panel2/Sprite2D/Label
-@onready var  lbFlechas= $UIStats/Panel3/Sprite2D/Label
+@onready var  lbFlechas= $UIStats/Panel2/Sprite2D/Label
+@onready var  lbBombas= $UIStats/Panel3/Sprite2D/Label
 @onready var manaBar= $UIManaBar/TextureProgressBar
 @onready var health= $UIHealtContainer/LifeFull
 @onready var actualObject = $UIActualObject/Object

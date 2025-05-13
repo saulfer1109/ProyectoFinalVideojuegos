@@ -16,27 +16,27 @@ position = Vector2(124, 119)
 speed = 75
 
 [node name="RecolectableItem" parent="." instance=ExtResource("4_sbr87")]
-position = Vector2(91, 119)
+position = Vector2(71, 135)
 IdItem = 5
-value = 1
+value = 5
 
 [node name="RecolectableItem2" parent="." instance=ExtResource("4_sbr87")]
-position = Vector2(118, 157)
+position = Vector2(113, 56)
 IdItem = 1
 value = 1
 
 [node name="RecolectableItem3" parent="." instance=ExtResource("4_sbr87")]
-position = Vector2(119, 62)
+position = Vector2(168, 79)
 IdItem = 2
 value = 25
 
 [node name="RecolectableItem4" parent="." instance=ExtResource("4_sbr87")]
-position = Vector2(207, 61)
+position = Vector2(215, 99)
 IdItem = 3
 value = 5
 
 [node name="RecolectableItem5" parent="." instance=ExtResource("4_sbr87")]
-position = Vector2(166, 168)
+position = Vector2(200, 161)
 IdItem = 4
 value = 5
 

@@ -1,7 +1,7 @@
 extends Node
 
 signal dataChange
-
+signal gameOver
 var actualObject: Texture2D:
 	get:
 		return actualObject
@@ -88,9 +88,11 @@ var health: int=0:
 	get:
 		return health
 	set(value):
-		health += clamp(value, 1, max_health)
-		if(health>=max_health):
-			health=max_health
+		health = clamp(value, 0, max_health)
+		if(health >= max_health):
+			health = max_health
+		if (health == 0):
+			gameOver.emit()
 		dataChange.emit()
 		saveGame()
 

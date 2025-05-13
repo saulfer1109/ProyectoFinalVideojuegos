@@ -29,6 +29,6 @@ func _on_body_entered(body:Node2D):
 			4:
 				dataNode.arrow=value
 			5:
-				dataNode.health=value
+				dataNode.health=dataNode.health + value
 		
 		queue_free()
