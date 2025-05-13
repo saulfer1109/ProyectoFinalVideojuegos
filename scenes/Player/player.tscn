@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://ce5jn8fjf4n21"]
+[gd_scene load_steps=43 format=3 uid="uid://ce5jn8fjf4n21"]
 
 [ext_resource type="Script" uid="uid://q624xaln42fx" path="res://scripts/Player/playerController.gd" id="1_1kbk7"]
 [ext_resource type="Texture2D" uid="uid://3w0af7nieac1" path="res://resourses/Player/PlayerSpritesheet2.png" id="2_1kbk7"]
@@ -356,6 +356,9 @@ states/Walk/position = Vector2(571.5, 66)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_tayva"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_x8khf"), "Attack", "Walk", SubResource("AnimationNodeStateMachineTransition_aciub"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_hk2ix"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_43ckd"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_cctgl"), "Walk", "Attack", SubResource("AnimationNodeStateMachineTransition_an8q1")]
 graph_offset = Vector2(148.455, 0)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqjuk"]
+size = Vector2(20, 23)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_1kbk7")
 typeDamage = 1
@@ -410,3 +413,12 @@ parameters/conditions/Walking = null
 parameters/Attack/blend_position = Vector2(0, 0)
 parameters/Idle/blend_position = Vector2(0.482094, -0.0299728)
 parameters/Walk/blend_position = Vector2(-0.117727, 0.814714)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_gqjuk")
+debug_color = Color(0.514179, 0.421283, 1, 0.42)
