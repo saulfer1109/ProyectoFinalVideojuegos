@@ -9,7 +9,7 @@
 [node name="tm_CampoCasa" parent="." instance=ExtResource("1_m5mpu")]
 
 [node name="Player" parent="." instance=ExtResource("2_ncw41")]
-position = Vector2(240, 75)
+position = Vector2(240, 85)
 
 [node name="Enemy_SideEye" parent="." instance=ExtResource("3_71yxc")]
 position = Vector2(84, 151)

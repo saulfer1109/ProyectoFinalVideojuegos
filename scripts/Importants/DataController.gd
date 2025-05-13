@@ -2,6 +2,11 @@ extends Node
 
 signal dataChange
 signal gameOver
+
+func _ready():
+	loadGame()
+	
+
 var actualObject: Texture2D:
 	get:
 		return actualObject
@@ -9,9 +14,13 @@ var actualObject: Texture2D:
 		actualObject = value
 		dataChange.emit()
 
-func _ready():
-	loadGame()
-	
+var idObject: int:
+	get:
+		return idObject
+	set(value):
+		idObject = value
+		dataChange.emit()
+
 var coins: int=0:
 	get:
 		return coins

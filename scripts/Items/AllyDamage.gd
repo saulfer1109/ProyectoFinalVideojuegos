@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: int = 140
-var direction
+var direccion
 var moveDirection
 var timer
 var canMove
@@ -15,7 +15,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	match direction:
+	match direccion:
 		"DOWN":
 			rotation = deg_to_rad(0)
 			moveDirection = Vector2.DOWN

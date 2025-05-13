@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://3i6v38jeydop"]
+
+[ext_resource type="Script" uid="uid://bco0k0yk31lyv" path="res://scripts/Items/hookshot_controller.gd" id="1_l1tl0"]
+
+[node name="HookshotController" type="Node2D"]
+script = ExtResource("1_l1tl0")

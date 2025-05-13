@@ -15,6 +15,7 @@ func _ready():
 	highlight.global_position.y = selectChilds[index].global_position.y + 7
 	dataNode = get_node("/root/MainRoom/DataController")
 	dataNode.actualObject = selectChilds[index].texture
+	dataNode.idObject = 1
 	
 func _process(_delta ):
 	self.visible = activeInventory
@@ -23,6 +24,8 @@ func _process(_delta ):
 	dataNode = get_node("/root/MainRoom/DataController")
 	dataNode.actualObject = selectChilds[index].texture
 	description.text = selectChilds[index].description
+	dataNode.idObject = selectChilds[index].idItem
+
 func _unhandled_input(event: InputEvent) -> void:
 	if activeInventory == true:
 		if event.is_action_pressed("ui_left"):

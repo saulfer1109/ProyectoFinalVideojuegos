@@ -10,10 +10,10 @@ var instance
 
 var arrow = preload("res://scenes/Items/AllyItems/ally_arrow.tscn")
 var slash = preload("res://scenes/Items/AllyItems/ally_slash.tscn")
-
+var hookshot = preload("res://scenes/Items/hookshot_controller.tscn")
 func setup(parent,body,direct,id):
 	parentNode = parent
-	posicion = Vector2(body.global_position)
+	posicion = body
 	direccion = direct
 	idDamage = id
 
@@ -27,6 +27,9 @@ func createDamage():
 			instance = slash.instantiate()
 			instance.timer = 0.35
 			instance.canMove = false
-	instance.direction = direccion
+		3:
+			instance = hookshot.instantiate()
+			instance.timer = 0.35
+	instance.direccion = direccion
 	instance.position = posicion
 	parentNode.add_child(instance)

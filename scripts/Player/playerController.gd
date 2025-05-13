@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: int=75
-@export var typeDamage = 2
+var typeDamage = 1
 @onready var animation = $AnimationPlayer
 @onready var sprite = $Sprite2D 
 @onready var marker = $Marker2D
@@ -54,6 +54,20 @@ func animateMovement():
 		animationTree["parameters/conditions/Walking"] = true
 		
 func _physics_process(_delta):
+	typeDamage = dataNode.idObject
+	if configController.canStaticMove:
+		velocity = position.direction_to(configController.posToMove) * (speed * 2)
+		move_and_slide()
+		
+		for i in range(get_slide_collision_count()):
+			var collision = get_slide_collision(1)
+			if collision.get_collider() is StaticBody2D || position == configController.posToMove:
+				configController.canStaticMove = false
+				configController.canMovePlayer = true
+		if position == configController.posToMove:
+				configController.canStaticMove = false
+				configController.canMovePlayer = true
+		
 	if configController.canMovePlayer:
 		if canDamage:
 			detection_damage()
@@ -103,13 +117,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	if configController.canMovePlayer == true:
 		if event.is_action_pressed("key_x"):
-			hitboxDamageScript.setup(self.get_parent(),hitboxDamage,direccionHitDamage,2)
+			hitboxDamageScript.setup(self.get_parent(),Vector2(hitboxDamage.global_position),direccionHitDamage,2)
 			hitboxDamageScript.createDamage()
 			attack_animation()
 		if event.is_action_pressed("key_z"):
-			hitboxDamageScript.setup(self.get_parent(),hitboxDamage,direccionHitDamage,typeDamage)
+			configController.canMovePlayer = false
+			hitboxDamageScript.setup(self.get_parent(),Vector2(hitboxDamage.global_position),direccionHitDamage,typeDamage)
 			hitboxDamageScript.createDamage()
-			attack_animation()
+			item_animation()
 	
 		if event.is_action_pressed("ui_select") && nearestActionable != null:
 			if is_instance_valid(nearestActionable):
@@ -123,7 +138,17 @@ func attack_animation():
 	await get_tree().create_timer(0.35).timeout
 	animationTree["parameters/conditions/Attacking"] = false
 	configController.canMovePlayer = true
-	
+
+func item_animation():
+	match(direccionHitDamage):
+		"UP":
+			sprite.frame = 52
+		"RIGHT":
+			sprite.frame = 61
+		"DOWN":
+			sprite.frame = 43
+		"LEFT":
+			sprite.frame = 70
 	
 func activeDamage():
 	modulate = Color(1,1,1)

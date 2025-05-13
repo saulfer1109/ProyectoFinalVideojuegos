@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1jdsfkli8ugj"]
+
+[ext_resource type="Script" uid="uid://cx8nkdfe06sfn" path="res://scripts/Items/AllyDamage.gd" id="1_6uy0a"]
+[ext_resource type="Texture2D" uid="uid://bru2hyoq5k13h" path="res://resourses/Items/Arrow.png" id="1_8ta7w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uy0a"]
+size = Vector2(5, 15)
+
+[node name="AllyArrow" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_6uy0a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8ta7w")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_6uy0a")
