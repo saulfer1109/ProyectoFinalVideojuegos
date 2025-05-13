@@ -30,13 +30,13 @@ func _process(delta: float) -> void:
 			moveDirection = Vector2.RIGHT
 			if oneTime == true:
 				oneTime = false
-				position.x = position.x - 10
+				position.x = position.x + 10
 		"LEFT":
 			rotation = deg_to_rad(90)
 			moveDirection = Vector2.LEFT
 			if oneTime == true:
 				oneTime = false
-				position.x = position.x + 10
+				position.x = position.x - 10
 	if canMove == true:
 		velocity = moveDirection * speed
 		move_and_slide()

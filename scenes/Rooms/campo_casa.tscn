@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpm0xg38vpiwx"]
+
+[ext_resource type="PackedScene" uid="uid://dmsgtich4sq4k" path="res://scenes/tilemap/tm_campo_casa.tscn" id="1_m5mpu"]
+[ext_resource type="PackedScene" uid="uid://ce5jn8fjf4n21" path="res://scenes/Player/player.tscn" id="2_ncw41"]
+[ext_resource type="PackedScene" uid="uid://b4kcd3phiosoq" path="res://scenes/Enemys/enemy_side_eye.tscn" id="3_71yxc"]
+
+[node name="CampoCasa" type="Node2D"]
+
+[node name="tm_CampoCasa" parent="." instance=ExtResource("1_m5mpu")]
+
+[node name="Player" parent="." instance=ExtResource("2_ncw41")]
+position = Vector2(236, 81)
+
+[node name="Enemy_SideEye" parent="." instance=ExtResource("3_71yxc")]
+position = Vector2(105, 154)
+
+[node name="Enemy_SideEye2" parent="." instance=ExtResource("3_71yxc")]
+position = Vector2(123, 191)
+
+[node name="Enemy_SideEye3" parent="." instance=ExtResource("3_71yxc")]
+position = Vector2(192, 256)
